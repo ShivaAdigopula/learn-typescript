@@ -1,20 +1,16 @@
-
-enum Role { ADMIN, READ_ONLY, AUTHOR};
-
-interface Person  {
-    name: string,
-    age: number | string,
-    hobbies: string[],
-    role: Role // tuple  => Fixed length array,
-    county: 'India' | 'Rest Of The World'
+function add(n1: number, n2: number): number { 
+    return n1 + n2;
 }
 
-const person:Person = {
-    name: 'Shiva',
-    age: '29',
-    hobbies: ['Listening Music', 'Watching Movies'],
-    role: Role.ADMIN,
-    county: 'India'
-};
+function printResult(num: number): void { 
+    console.log(`result ${num}`);
+}
 
-console.log(person.name);
+let temp2: Function;
+let temp: (a: number, b: number) => number;
+
+temp = add;
+temp = printResult; // gives error
+
+temp2 = add;
+temp2 = printResult;
