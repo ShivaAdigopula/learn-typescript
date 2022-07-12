@@ -10,7 +10,9 @@ let temp2: Function;
 let temp: (a: number, b: number) => number;
 
 temp = add;
-temp = printResult; // gives error
+//temp = printResult; // gives error
 
 temp2 = add;
 temp2 = printResult;
+
+temp2 = () => { };
