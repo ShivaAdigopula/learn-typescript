@@ -1,16 +1,18 @@
 
+enum Role { ADMIN, READ_ONLY, AUTHOR};
+
 interface Person  {
     name: string,
-    age: number,
+    age: number | string,
     hobbies: string[],
-    role: [number, string] // tuple  => Fixed length array
+    role: Role // tuple  => Fixed length array
 }
 
 const person:Person = {
     name: 'Shiva',
-    age: 29,
+    age: '29',
     hobbies: ['Listening Music', 'Watching Movies'],
-    role: [2, 'author']
+    role: Role.ADMIN
 };
 
 console.log(person.name);
