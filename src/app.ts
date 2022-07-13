@@ -1,18 +1,27 @@
-function add(n1: number, n2: number): number { 
-    return n1 + n2;
+class Department { 
+    private name: string;
+    private employees: string[] = [];
+    constructor(n: string) { 
+        this.name = n;
+    }
+
+    describe(){ 
+        console.log({name: this.name, employees : this.employees});
+    }
+
+    addEmployee(name: string) { 
+        this.employees.push(name);
+    }
 }
 
-function printResult(num: number): void { 
-    console.log(`result ${num}`);
-}
+const softwareEngg = new Department("Software Engineering");
+console.log(softwareEngg); 
 
-let temp2: Function;
-let temp: (a: number, b: number) => number;
+softwareEngg.describe();
 
-temp = add;
-//temp = printResult; // gives error
+softwareEngg.addEmployee('shiva');
 
-temp2 = add;
-temp2 = printResult;
+softwareEngg.describe();
 
-temp2 = () => { };
+softwareEngg.employees[1] = 'adigopula';
+console.log(softwareEngg.employees);
