@@ -5,6 +5,15 @@ interface Named {
 interface Greetable extends Named{ 
     greet(phrase: string): void;
 }
+// type AddFn = (a: number, b: number) => number;
+interface AddFn { 
+    (a: number, b: number) : number;
+}
+
+let addFnImpl: AddFn;
+addFnImpl = (a: number, b: number) => { 
+    return a+b;
+}
 
 
 class User implements Greetable { 
