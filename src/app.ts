@@ -50,3 +50,13 @@ moveAnimal({ type: 'bird', flyingSpeed: 10 });
 
 let paragraph = document.getElementById("output")! as HTMLElement;
 paragraph.innerText = "Hello World";
+
+
+interface ErrorContainer { //{email: 'Email is not valid'}
+    [prop:string] : string
+}
+
+const errorBag: ErrorContainer = {
+    email: 'Not a valid Email',
+    username: 'Not a valid username'
+}
