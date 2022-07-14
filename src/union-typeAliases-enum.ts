@@ -3,11 +3,11 @@ enum Role { ADMIN, READ_ONLY, AUTHOR};
 
 type Country = 'India' | 'Rest Of The World';
 type Person  = {
-    name: string,
-    age: number | string,
-    hobbies: string[],
-    role: Role // tuple  => Fixed length array,
-    county: Country 
+    name: string;
+    age: number | string;
+    hobbies: string[];
+    role: Role; // tuple  => Fixed length array,
+    county: Country; 
 }
 
 const person:Person = {
