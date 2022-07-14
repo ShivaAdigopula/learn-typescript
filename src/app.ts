@@ -16,11 +16,20 @@ abstract class Department {
 }
 
 class ITDepartment extends Department { 
-    private projects: string[] = [];
+    private projects: string[];
+    private static instance: ITDepartment;
 
-    constructor(projects: string[]) { 
+    private constructor(projects: string[]) { 
         super("IT", "Information Technology");
         this.projects = projects;
+    }
+
+    static getInstance() { 
+        if (this.instance) { 
+            return this.instance;
+        }
+        this.instance = new ITDepartment([]);
+        return this.instance;
     }
 
     get recentProject() { 
@@ -35,8 +44,8 @@ class ITDepartment extends Department {
     }
     
 }
-
-const softwareEngg = new ITDepartment([]);
+// const dept = new Department();
+const softwareEngg = ITDepartment.getInstance();
 console.log(softwareEngg); 
 
 softwareEngg.describe();
