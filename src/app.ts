@@ -1,7 +1,7 @@
-class Department { 
+abstract class Department { 
     static readonly fiscalYear: number = 2022;
     
-    private employees: string[] = []; // added here for initialization
+    protected employees: string[] = []; // added here for initialization
     constructor(private readonly id : string, private name: string) { 
        
     }
