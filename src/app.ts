@@ -1,41 +1,52 @@
-interface Named { 
-    readonly name?: string;
-    outputName?: string; // optional property
+type Admin = {
+    name: string;
+    privileges: string[];
 }
 
-interface Greetable extends Named{ 
-    greet(phrase: string): void;
-}
-// type AddFn = (a: number, b: number) => number;
-interface AddFn { 
-    (a: number, b: number) : number;
+type Employee = {
+    name: string;
+    startDate: Date;
 }
 
-let addFnImpl: AddFn;
-addFnImpl = (a: number, b: number) => { 
-    return a+b;
+type ElevatedEmployee = Admin & Employee;  // intersection type
+const e1: ElevatedEmployee = {
+    name: 'shiva',
+    privileges: ['admin'],
+    startDate: new Date();
+};
+
+type Combinable = number | string;
+type Numeric = number | boolean;
+
+type Universal = Combinable | Numeric;
+
+
+interface Bird { 
+    type: 'bird';
+    flyingSpeed: number;
 }
 
+interface Horse { 
+    type: 'horse';
+    runningSpeed: number;
+}
 
-class User implements Greetable { 
-    name?: string;
-    private passPhrase: string;
-    constructor( n?: string ) { 
-        this.name = n;
-        this.passPhrase = '';
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) { 
+    let speed;
+    switch (animal.type) { 
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSpeed;
     }
-    greet(phrase: string) { 
-        console.log(`${phrase} ${this.name}`)
-    }
-    set password(password: string) { 
-        this.passPhrase = password;
-    }
-
-    get password() { 
-        return this.passPhrase;
-    }
+    console.log('Moving at speed: ' + speed);
 }
-let user1 : Greetable = new User("shiva");
-// user1.name = 'test'; not possible
-console.log(user1);
-user1.greet('hello')
+
+
+moveAnimal({ type: 'bird', flyingSpeed: 10 });
+
+let paragraph = document.getElementById("output")! as HTMLElement;
+paragraph.innerText = "Hello World";
