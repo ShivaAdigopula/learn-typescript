@@ -1,4 +1,5 @@
 class Department { 
+    static readonly fiscalYear: number = 2022;
     
     private employees: string[] = []; // added here for initialization
     constructor(private readonly id : string, private name: string) { 
@@ -17,6 +18,11 @@ class Department {
 class ITDepartment extends Department { 
     private projects: string[] = [];
 
+    constructor(projects: string[]) { 
+        super("IT", "Information Technology");
+        this.projects = projects;
+    }
+
     get recentProject() { 
         return this.projects[0];
     }
@@ -30,7 +36,7 @@ class ITDepartment extends Department {
     
 }
 
-const softwareEngg = new ITDepartment("SE", "Software Engineering");
+const softwareEngg = new ITDepartment([]);
 console.log(softwareEngg); 
 
 softwareEngg.describe();
@@ -42,7 +48,13 @@ softwareEngg.describe();
 softwareEngg.addProject = "TS";
 console.log(softwareEngg.recentProject)
 
-softwareEngg.addProject = "";
+try {
+    softwareEngg.addProject = "";
+} catch (e) { 
+    console.error(e)
+}
+console.log(ITDepartment.fiscalYear)
+
 
 //softwareEngg.employees[1] = 'adigopula';
 //console.log(softwareEngg.employees);
