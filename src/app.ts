@@ -1,5 +1,6 @@
 interface Named { 
-    readonly name: string;
+    readonly name?: string;
+    outputName?: string; // optional property
 }
 
 interface Greetable extends Named{ 
@@ -17,9 +18,9 @@ addFnImpl = (a: number, b: number) => {
 
 
 class User implements Greetable { 
-    name: string;
+    name?: string;
     private passPhrase: string;
-    constructor( n: string ) { 
+    constructor( n?: string ) { 
         this.name = n;
         this.passPhrase = '';
     }
