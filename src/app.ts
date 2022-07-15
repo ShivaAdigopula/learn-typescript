@@ -75,3 +75,11 @@ const errorBag: ErrorContainer = {
     email: 'Not a valid Email',
     username: 'Not a valid username'
 }
+
+const fetchedUserData = {
+    id: 'u1',
+    name: 'Shiva',
+    //job: {title: 'SE'}
+}
+
+console.log(fetchedUserData?.job?.title);
