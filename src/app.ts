@@ -83,3 +83,10 @@ const fetchedUserData = {
 }
 
 console.log(fetchedUserData?.job?.title);
+
+let value = null;
+const testValue = value ?? 'DEFAULT'; // gets default only if value is null or undefined
+
+const testValue2 = value || 'DEFAULT'; // gets default if value turns to be falsy => so it also takes blank value and false
+
+console.log(testValue ); 
